@@ -18,8 +18,14 @@
           <% end %>
         </ul>
       </div>
-      <%= link_to "Associate an ingredient", new_cocktail_dose_path(@cocktail) %>|
-      <%= link_to "Back", cocktails_path %>
+    </div>
+    <div class="col-md-4 col-md-offset-4">
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.association :ingredient %>
+        <%= f.input :description %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
+  <%= link_to "Back", cocktails_path %>
 </div>
