@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+          <div class="card-category"><%= cocktail.name %></div>
+          <div class="card-description">
+            <ul>
+               <% cocktail.doses.each do |dose| %>
+                <li><%= dose.ingredient.name %>: <%= dose.description %></li>
+                <% end %>
+            </ul>
+          </div>
+          <%= link_to "", cocktail_path(cocktail), :class => "card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+    <%= link_to "Add a cocktail", new_cocktail_path %>
+  </div>
+</div>
